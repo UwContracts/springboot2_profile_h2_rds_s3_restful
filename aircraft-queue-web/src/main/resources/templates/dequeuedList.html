@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Aircraft Dequeue List</title>
+</head>
+<body>
+	<div th:if="${dequeuedAc != null}">
+		<h2 th:inline="text">Aircraft Dequeued</h2>
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Size</th>
+				<th>Enqueue Time</th>
+				<th>Dequeue Time</th>
+			</tr>
+			<tr>
+				<td th:text="${dequeuedAc.id}"></td>
+				<td th:text="${dequeuedAc.name}"></td>
+				<td th:text="${dequeuedAc.type}"></td>
+				<td th:text="${dequeuedAc.size}"></td>
+				<td th:text="${dequeuedAc.enqueueTime}"></td>
+				<td th:text="${dequeuedAc.dequeueTime}"></td>
+			</tr>
+		</table>
+	</div>
+	<h2 th:inline="text">Aircraft Dequeue List</h2>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Size</th>
+			<th>Enqueue Time</th>
+			<th>Dequeue Time</th>
+		</tr>
+		<th:block th:each="ac : ${dequeuedList}">
+			<tr>
+				<td th:text="${ac.id}"></td>
+				<td th:text="${ac.name}"></td>
+				<td th:text="${ac.type}"></td>
+				<td th:text="${ac.size}"></td>
+				<td th:text="${ac.enqueueTime}"></td>
+				<td th:text="${ac.dequeueTime}"></td>
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>
