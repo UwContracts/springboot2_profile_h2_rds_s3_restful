@@ -59,8 +59,7 @@ public class WsClientConfig {
     }
 
 	@Bean
-	@Autowired
-	public TransferManager getTransferManager(AmazonS3 amazonS3) {
+	public TransferManager getTransferManager(@Autowired AmazonS3 amazonS3) {
 		return TransferManagerBuilder.standard().withS3Client(amazonS3).build();
 	}
     

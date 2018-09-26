@@ -41,8 +41,7 @@ public class DomainConfig {
     private boolean hibernateNonContextualCreation;
     
 	@Bean
-    @Autowired
-    public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
+    public EntityManagerFactory entityManagerFactory(@Autowired DataSource dataSource) {
 
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setShowSql(hibernateShowSql);
@@ -69,8 +68,7 @@ public class DomainConfig {
     }
 
 	@Bean
-    @Autowired
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    public PlatformTransactionManager transactionManager(@Autowired EntityManagerFactory entityManagerFactory) {
 
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory);
